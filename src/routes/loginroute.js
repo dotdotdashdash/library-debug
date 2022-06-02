@@ -2,6 +2,7 @@ const express = require('express');
 const loginRouter = express.Router();
 const user = require('../data/user');
 
+
 loginRouter.get('/',function(req,res){
 
     res.render('login',{});

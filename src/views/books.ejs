@@ -37,22 +37,14 @@
           
               <!-- Links -->
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/authors">Authors
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/books">Books</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/books/addbook">Add Book</a>
-                </li>
-                <li class="nav-item active">
-                      <a class="nav-link" href="/authors/addauthor">Add Author</a>
-                </li>
 
-        
+                <% for( let i = 0; i < nav.length; i++ ) { %>
+                  
+                  <li class="nav-item active">
+                    <a class="nav-link" href= <%= nav[i].link %>  > <%= nav[i].title %>  </a>
+                  </li>
+
+                <% } %>
           
               </ul>
               <!-- Links -->
@@ -102,18 +94,7 @@
             <%}%> 
     </section>
 
-    <section>
-
-      <% for( let i=0; i < nav.length; i++ ) { %>
-        <div>
-          <h2> <%= nav[i].title %>  </h2>
-        </div>
-      
-      <% } %>
-
-    </section>
-
-
+ 
 
 <br>
 
