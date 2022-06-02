@@ -2,6 +2,7 @@ const express = require('express');
 const booksRouter = express.Router();
 // const books = require('../data/books');
 const bookdata = require('../model/BookModel');
+const nav = require("../../app.js");
 
 
 
@@ -12,7 +13,7 @@ booksRouter.get('/',function(req,res){
     .then(function (books) {
 
     res.render('books',{
-        books
+        books, nav
     });
 
     })
