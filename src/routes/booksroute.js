@@ -4,7 +4,6 @@ const booksRouter = express.Router();
 const bookdata = require('../model/BookModel');
 const nav = require("../data/navbar");
 
-console.log("booksroute - line7", nav)
 
 
 

@@ -8,15 +8,16 @@ signupRouter.get('/',function(req,res){
     
 })
 
-signupRouter.get("/adduser",function(req,res){
+signupRouter.post("/adduser",function(req,res){
+    // console.log("signup route - line12", req.body)
     
     var newuser = {
-        "uid":req.param("uid"),
-        "pwd":req.param("pwd")
+        "id":req.body.uid,
+        "pwd":req.body.pwd
     };
-    console.log(newuser);
+    console.log("signup route - line18", newuser);
     user.push(newuser);
-    console.log(user);
+    console.log("signup route - line20",user);
     res.redirect("/login");
 })
 
