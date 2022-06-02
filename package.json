@@ -10,9 +10,12 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.12"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
+    "comment": "Part #1 Point 1  - No start script defined",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "aiswarya",
