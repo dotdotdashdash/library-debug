@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const { use } = require('../routes/loginroute');
-mongoose.connect('mongodb://localhost:27017/Library');
+mongoose.connect('mongodb://localhost:27017/Library', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({

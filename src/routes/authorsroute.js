@@ -31,14 +31,14 @@ authorsRouter.get('/addauthor',function(req,res){
 
 //router to add author
 authorsRouter.post('/add', function (req, res) {
-    console.log("authorsroute line35", req.body)
+    // console.log("authorsroute line35", req.body)
  
     var item={
         title:req.body.title,
         image:req.body.image,   //Part #2 Point 8. - change images to image
         about:req.body.about
     }
-    // console.log(item)  ;
+    console.log(item)  ;
     const author = new authordata(item);
     author.save();
     res.redirect('/authors');
