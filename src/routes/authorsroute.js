@@ -2,7 +2,6 @@ const express = require('express');
 const authorsRouter = express.Router();
 // const authors = require('../data/authors');
 const authordata = require('../model/AuthorModel');
-const nav = require("../data/navbar");
 
 
 
@@ -13,7 +12,7 @@ authorsRouter.get('/',function(req,res){
     .then(function (authors) {
 
     res.render('authors',{
-        authors, nav
+        authors
     });
 
     })

@@ -31,19 +31,11 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
       
           <!-- Links -->
-          <ul class="navbar-nav ml-auto">
- 
-            <% for( let i = 0; i < nav.length; i++ ) { %>
-                  
-              <li class="nav-item active">
-                <a class="nav-link" href= <%= nav[i].link %>  > <%= nav[i].title %>  </a>
-              </li>
+          
+          <!-- Part#2 Point6 -->
+          <%- include('partials/navbar.ejs') %>
 
-            <% } %>
 
-    
-      
-          </ul>
           <!-- Links -->
       
           <form class="form-inline">
