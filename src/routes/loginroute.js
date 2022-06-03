@@ -1,6 +1,8 @@
 const express = require('express'); 
 const loginRouter = express.Router();
-const user = require('../data/user');
+// const user = require('../data/user');
+const userdata = require('../model/UserModel');
+
 
 
 loginRouter.get('/',function(req,res){
@@ -9,44 +11,25 @@ loginRouter.get('/',function(req,res){
     
 })
 
+loginRouter.post('/check',function(req,res){
 
-loginRouter.get("/check",function(req,res){
-    var checkuser = {
-        uid:req.param("uid"),
-        pwd:req.param("pwd")
-    };
-    
-    console.log(checkuser);
-    var flag=false;
+    // console.log("loginroute - line16 - req.body", req.body)
+    var email = req.body.email;
+    var pwd = req.body.pwd;
 
-//    var flagg = user.find((e)=>{
-       for(let i=0;i<user.length;i++){
-        
-        if(checkuser.uid==user[i].uid && checkuser.pwd==user[i].pwd)
-        {
-            
-            flag=true;
-            break;
+    console.log(email,pwd);
+
+    userdata.find({"email": email, "pwd": pwd}, (err, user) => {
+        if(err) {
+            res.send(err)
+        } else if(user.length == 0) {
+            res.send("User not found")
+        } else {
+            res.redirect("/home")
         }
-        else{
-                flag=false;
-            }
-        };
+    })
 
-        console.log(flag);
-
-if(flag==true){
-    // alert("User Verified.Click to continue");
-    res.redirect("/home")
-}
-else{
-    // alert("User Verification Failed");
-    res.redirect("/signup");
-}
-
-});
-
-
+})
 
 
 module.exports = loginRouter;

@@ -17,9 +17,7 @@ signupRouter.post("/adduser",function(req,res){
         "email":req.body.email,
         "pwd":req.body.pwd
     };
-    console.log("signup route - line18 - newuser", newuser);
-    // user.push(newuser);
-    // console.log("signup route - line20",user);
+    console.log("signup route - line20 - newuser", newuser);
     const user = new userdata(newuser);
     user.save();
 

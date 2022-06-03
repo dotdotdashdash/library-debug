@@ -14,7 +14,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "comment": "Part #1 Point 1  - No start script defined",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

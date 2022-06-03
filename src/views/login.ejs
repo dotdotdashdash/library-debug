@@ -65,10 +65,10 @@
             </div>
             <br>
 
-            <form class='col-12' action="/login/check" onsubmit="return validate()" method="GET">
+            <form class='col-12' action="/login/check" onsubmit="return validate()" method="post">
 
               <div class="form-group">
-                <input id="uid" name="uid" class='form-control' type="email" placeholder="Enter Username(email id)" id="mail" required>
+                <input id="email" name="email" class='form-control' type="email" placeholder="Enter Email ID" id="mail" required>
                 <label for="email" id="feedback" style="color:red; visibility:hidden">Enter valid e-mail id</label>
 
               </div>
