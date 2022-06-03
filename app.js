@@ -2,7 +2,6 @@ const express = require('express');
 const path = require ('path');
 const cors = require('cors');    // Part #1 Point 7
 const bodyParser = require('body-parser');  // Part #1 Point 2
-
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
 const homeRouter = require('./src/routes/homerouter');  // Part #1 Point 3
