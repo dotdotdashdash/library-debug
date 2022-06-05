@@ -17,11 +17,20 @@ signupRouter.post("/adduser",function(req,res){
         "email":req.body.email,
         "pwd":req.body.pwd
     };
-    console.log("signup route - line20 - newuser", newuser);
     const user = new userdata(newuser);
-    user.save();
+    user.save((err, user) => {
+        if(err) {
+            if(err.code == 11000){
+                res.send(`<script> alert("Email ID already in use!") </script>`);
+            } else {
+                res.send(`<script> alert("Unknown Error!") </script>`);
+            }    
+        } else {
+        console.log("signuproute - line20 - newuser", newuser, "added");
+        res.redirect("/login");
+        }
+    });
 
-    res.redirect("/login");
 })
 
 module.exports = signupRouter;
