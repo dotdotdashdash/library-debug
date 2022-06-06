@@ -19,15 +19,14 @@ loginRouter.post('/check',function(req,res){
     var email = req.body.email;
     var pwd = req.body.pwd;
 
-    console.log(email,pwd);
-
     userdata.find({"email": email, "pwd": pwd}, (err, user) => {
         if(err) {
             res.send(err)
         } else if(user.length == 0) {
+            console.log("Invalid Login!");
             res.send(`<script> alert("User not found!") </script>`);    
-
         } else {
+            console.log("Logging in", email);
             res.redirect("/home")
         }
     })
