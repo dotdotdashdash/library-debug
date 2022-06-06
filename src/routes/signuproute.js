@@ -21,6 +21,7 @@ signupRouter.post("/adduser",function(req,res){
     user.save((err, user) => {
         if(err) {
             if(err.code == 11000){
+                console.log("SignUp attempt using an existing Email ID");
                 res.send(`<script> alert("Email ID already in use!") </script>`);
             } else {
                 res.send(`<script> alert("Unknown Error!") </script>`);
