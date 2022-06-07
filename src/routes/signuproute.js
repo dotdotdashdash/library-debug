@@ -12,10 +12,10 @@ signupRouter.post("/adduser",function(req,res){
     // console.log("signup route - line12 - req.body", req.body)
     
     var newuser = {
-        "first_name": req.body.fname,
-        "last_name": req.body.lname,
-        "email":req.body.email,
-        "pwd":req.body.pwd
+        "first_name": req.body.fname.trim(),
+        "last_name": req.body.lname.trim(),
+        "email":req.body.email.trim(),
+        "pwd":req.body.pwd.trim()
     };
     const user = new userdata(newuser);
     user.save((err, user) => {
@@ -27,7 +27,7 @@ signupRouter.post("/adduser",function(req,res){
                 res.send(`<script> alert("Unknown Error!") </script>`);
             }    
         } else {
-        console.log("signuproute - line20 - newuser", newuser, "added");
+        console.log("signuproute - line30 - newuser", newuser, "added");
         res.redirect("/login");
         }
     });
