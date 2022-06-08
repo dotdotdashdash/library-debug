@@ -9,10 +9,6 @@ loginRouter.get('/',function(req,res){
     res.render('login',{});
 })
 
-// loginRouter.get('/error', (req,res)=> {
-//     res.render('login',{})
-// });
-
 loginRouter.post('/check',function(req,res){
 
     // console.log("loginroute - line16 - req.body", req.body)
@@ -22,7 +18,7 @@ loginRouter.post('/check',function(req,res){
 
     userdata.find({"email": email}, (err, user) => {
         
-        console.log(`entered pass: ${pwd}, user: ${user[0]['pwd']}`);
+        // console.log(`entered pass: ${pwd}, user: ${user[0]['pwd']}`);
 
         if(err) {
             res.send(err)
