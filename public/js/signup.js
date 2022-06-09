@@ -10,6 +10,35 @@ var mailfb=document.getElementById("emailfeedback");
 var pw=document.getElementById("pwd");
 var pwfb=document.getElementById("pwdfeedback");
 
+function validateAndPost() {
+
+
+    if(validate){
+        const req = new XMLHttpRequest;
+
+        req.open('POST', '/signup/adduser');
+        req.setRequestHeader("Content-Type", "application/json");
+      
+        req.onreadystatechange = function() {
+            if (this.readyState==4 && this.status==200) {
+                  console.log(req.response.success);
+
+                location.replace('/login')
+                alert("Signup Successfull!", req.responseText)
+            }
+        }
+      
+        var data = {
+          'first_name': fname.value,
+          'last_name': lname.value,
+          'email':email.value,
+          'pwd':pwd.value
+        }
+        console.log(JSON.stringify(data));
+        req.send(JSON.stringify(data))
+    }
+}
+
 function validate(){
 
     var myFname=fName.value;
