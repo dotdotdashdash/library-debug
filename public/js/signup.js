@@ -12,19 +12,27 @@ var pwfb=document.getElementById("pwdfeedback");
 
 function validateAndPost() {
 
+    var validated = validate()
 
-    if(validate){
+    // console.log(validated)
+    if(validated){
         const req = new XMLHttpRequest;
 
         req.open('POST', '/signup/adduser');
         req.setRequestHeader("Content-Type", "application/json");
       
         req.onreadystatechange = function() {
-            if (this.readyState==4 && this.status==200) {
-                  console.log(req.response.success);
+            if(this.readyState==4 && this.status==200) {
+                res = JSON.parse(req.responseText)
 
-                location.replace('/login')
-                alert("Signup Successfull!", req.responseText)
+                if(res.success == true) {
+                    location.replace('/login')
+                    alert("Signup Successfull!")
+                } else {
+                    var alertText = `${res.response}, Try again`;
+                    alert(alertText);
+                }
+                
             }
         }
       
@@ -34,8 +42,8 @@ function validateAndPost() {
           'email':email.value,
           'pwd':pwd.value
         }
-        console.log(JSON.stringify(data));
-        req.send(JSON.stringify(data))
+        // console.log("signup.js - line45", JSON.stringify(data));
+        req.send(JSON.stringify(data));
     }
 }
 
