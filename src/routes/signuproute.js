@@ -35,11 +35,11 @@ signupRouter.post("/adduser",function(req,res){
                 });
             }    
         } else {
-        console.log("signuproute - line30 - newuser", newuser, "added");
-        res.json({
-            "success": true,
-            "response": `${newuser.first_name} ${newuser.last_name} added`
-        });
+            console.log("signuproute - line30 - newuser", newuser, "added");
+            res.json({
+                "success": true,
+                "response": `${newuser.first_name} ${newuser.last_name} added`
+            });
         }
     });
 

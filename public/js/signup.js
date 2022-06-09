@@ -27,7 +27,7 @@ function validateAndPost() {
 
                 if(res.success == true) {
                     location.replace('/login')
-                    alert("Signup Successfull!")
+                    alert("Signup Successfull! Log in now using your credentials")
                 } else {
                     var alertText = `${res.response}, Try again`;
                     alert(alertText);

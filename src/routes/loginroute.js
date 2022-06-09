@@ -24,13 +24,24 @@ loginRouter.post('/check',function(req,res){
             res.send(err)
         } else if(user.length == 0) {
             console.log("User not found!");
-            res.send(`<script> alert("User not found!") </script>`);    
+            // res.send(`<script> alert("User not found!") </script>`); 
+            res.json({
+                'success': false,
+                'response': 'User not found'
+            });
         } else if(pwd != user[0]['pwd']){
             console.log("Wrong Password!");
-            res.send(`<script> alert("Email ID and Password doesn't match!") </script>`);  
+            // res.send(`<script> alert("Email ID and Password doesn't match!") </script>`);  
+            res.json({
+                'success': false,
+                'response': `Email ID and Password doesn't match`
+            });
         } else {
-            console.log("Logging in");
-            res.redirect("/home");
+            console.log("loginroute - line40 - Logging in", user[0].first_name, user[0].last_name);
+            res.json({
+                'success': true,
+                'response': `Logged in`
+            });
         }
     })
 });

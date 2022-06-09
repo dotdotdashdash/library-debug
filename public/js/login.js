@@ -31,15 +31,41 @@ function validate(){
             return false;
 
         }
-
     }
 
     else{
         fb.style.visibility="visible";
         return false;
     }
+}
 
+function logIn() {
 
+    var data = {
+        'email':mail.value,
+        'pwd':pw.value        
+    }
 
+    const req = new XMLHttpRequest;
+
+    req.open('POST', '/login/check');
+    req.setRequestHeader("Content-Type", "application/json");
+
+    req.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200) {
+            res = JSON.parse(req.responseText)
+            // console.log("line 57", res)
+            // alert("success")
+            
+            if(res.success == true) {
+                window.location.replace('/home');
+            } else {
+                var alertText = `${res.response}, Try again`;
+                alert(alertText);
+            }
+        }
+    }
+
+    req.send(JSON.stringify(data));
 
 }

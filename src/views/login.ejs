@@ -65,10 +65,10 @@
             </div>
             <br>
 
-            <form class='col-12' action="/login/check" onsubmit="return validate()" method="post">
+            <form class='col-12' action="#" onsubmit="return validate();">
 
               <div class="form-group">
-                <input id="email" name="email" class='form-control' type="email" placeholder="Enter Email ID" id="mail" required>
+                <input name="email" class='form-control' type="email" placeholder="Enter Email ID" id="mail" required>
                 <label for="email" id="feedback" style="color:red; visibility:hidden">Enter valid e-mail id</label>
 
               </div>
@@ -76,11 +76,11 @@
 
 
               <div class="form-group">
-                  <input id="pwd" name="pwd" class='form-control' type="password" placeholder="Enter Password" id="pwd" required>
+                  <input id="pwd" name="pwd" class='form-control' type="password" placeholder="Enter Password" required>
                   <label for="pwd" id="feedback2" style="color:red; visibility:hidden">Password should be minimum 8 characters</label>
               </div>
 
-              <button id="login" name="login" type="submit" class="btn btn-success text-center"><i class="fas fa-sign-in-alt"></i>Log in</button>
+              <button id="login" name="login" onclick="logIn()" type="submit" class="btn btn-success text-center"><i class="fas fa-sign-in-alt"></i>Log in</button>
             </form>
             
           </div>
@@ -116,33 +116,6 @@
 
     <script src="js/login.js"></script>
 
-    <!-- <script>
-      $("#login").click(function(e){
-          e.preventDefault();
-          alert("Are you sure you want to log in?");
-          
-          const data = {
-              "uid": $('#uid').val(),
-              "pwd": $('#pwd').val(),
-      
-          }
-      
-        $.ajax
-        ({
-          url: `/login/check`,
-        method:'post', 
-        data:JSON.stringify(data),
-        contentType:"application/json",
-        success: function(result){
-            alert("new author added successfully");
-          window.location = "/authors";
-          console.log(result);
-          }
-          });
-
-        });
-
-  </script> -->
 
 </body>
 </html>
